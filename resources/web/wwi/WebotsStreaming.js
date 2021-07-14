@@ -17,7 +17,7 @@ export default class WebotsStreaming extends HTMLElement {
 
         // if it's a data file, use a custom dir
         if (path.endsWith(".data"))
-          return "https://cyberbotics.com/wwi/R2021b/" + path;
+          return "../wwi/" + path;
 
         // otherwise, use the default, the prefix (JS file's dir) + the path
         return prefix + path;
@@ -113,8 +113,8 @@ export default class WebotsStreaming extends HTMLElement {
   async _init() {
     let promises = [];
     promises.push(this._load('https://git.io/glm-js.min.js'));
-    promises.push(this._load('https://cyberbotics.com/wwi/R2021b/enum.js'));
-    promises.push(this._load('https://cyberbotics.com/wwi/R2021b/wrenjs.js'));
+    promises.push(this._load('../wwi/enum.js'));
+    promises.push(this._load('../wwi/wrenjs.js'));
 
     await Promise.all(promises);
   }

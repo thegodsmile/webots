@@ -35,6 +35,8 @@ import WbViewpoint from './nodes/WbViewpoint.js';
 import WbWorld from './nodes/WbWorld.js';
 import {getAnId} from './nodes/utils/utils.js';
 
+import WbWrenShaders from './wren/WbWrenShaders.js';
+
 import DefaultUrl from './DefaultUrl.js';
 import loadHdr from './hdr_loader.js';
 import {webots} from './webots.js';
@@ -105,6 +107,7 @@ export default class Parser {
     let result;
     if (node.tagName === 'Scene') {
       WbWorld.instance.scene = await this._parseScene(node);
+      WbWrenShaders.buildAll();
       await this._parseChildren(node, parentNode);
     } else if (node.tagName === 'WorldInfo')
       this._parseWorldInfo(node);

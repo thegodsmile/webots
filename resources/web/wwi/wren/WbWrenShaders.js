@@ -17,6 +17,40 @@ export default class WbWrenShaders {
     }
   }
 
+  static buildAll() {
+    console.time('Shaders')
+    WbWrenShaders.bloomBlendShader();
+    WbWrenShaders.brightPassShader();
+    WbWrenShaders.defaultShader();
+    WbWrenShaders.depthPixelShader();
+    WbWrenShaders.fogShader();
+    WbWrenShaders.gaussianBlur13TapShader();
+    WbWrenShaders.gtaoShader();
+    WbWrenShaders.gtaoSpatialDenoiseShader();
+    WbWrenShaders.gtaoTemporalDenoiseShader();
+    WbWrenShaders.gtaoCombineShader();
+    WbWrenShaders.hdrClearShader();
+    WbWrenShaders.hdrResolveShader();
+    WbWrenShaders.iblSpecularIrradianceBakingShader();
+    WbWrenShaders.iblBrdfBakingShader();
+    WbWrenShaders.lineSetShader();
+    WbWrenShaders.passThroughShader();
+    WbWrenShaders.pbrShader();
+    WbWrenShaders.pbrStencilAmbientEmissiveShader();
+    WbWrenShaders.pbrStencilDiffuseSpecularShader();
+    WbWrenShaders.phongShader();
+    WbWrenShaders.phongStencilAmbientEmissiveShader();
+    WbWrenShaders.phongStencilDiffuseSpecularShader();
+    WbWrenShaders.pickingShader();
+    WbWrenShaders.pointSetShader();
+    WbWrenShaders.shadowVolumeShader();
+    WbWrenShaders.skyboxShader();
+    WbWrenShaders.smaaEdgeDetectionShader();
+    WbWrenShaders.smaaBlendingWeightCalculationShader();
+    WbWrenShaders.smaaFinalBlendShader();
+    console.timeEnd('Shaders')
+  }
+
   static bloomBlendShader() {
     if (!WbWrenShaders.gShaders[WbWrenShaders.SHADER.SHADER_BLOOM_BLEND]) {
       WbWrenShaders.gShaders[WbWrenShaders.SHADER.SHADER_BLOOM_BLEND] = _wr_shader_program_new();
